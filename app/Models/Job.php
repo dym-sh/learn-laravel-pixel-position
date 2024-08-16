@@ -7,6 +7,7 @@ use App\Models\Tag;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Job extends Model
 {
@@ -24,7 +25,7 @@ class Job extends Model
         $this->tags()->attach($tag);
     }
 
-    public function tags()
+    public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class);
     }
